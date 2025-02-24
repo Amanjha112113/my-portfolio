@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - love Puzzle</title>
+  <style type="text/css">
+    
+  :root {
+  --color:rgb(0, 0, 0);
+  --border-radius:10px;
+}
+
+body {
+  background:#000000;
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+}
+
+#puz, #puzz {
+  position:absolute;
+  border-radius:var(--border-radius) 0 var(--border-radius) 0;    
+  user-select:none;
+}
+#puz {
+  width:300px;
+  height:300px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border:3px dashed lightgray;
+  overflow:hidden;
+}
+#puzz {
+  left:0;
+  top:0;
+  border:0;
+}
+
+#puz i {
+  float:left;
+  width:100px;
+  height:100px;
+  outline:1px dashed lightgray;
+}
+
+#puzz i {
+  position:absolute;
+  width:100px;
+  height:100px;
+  background:var(--color);
+  background-image:var(--image);
+  background-size:300px 300px;
+  cursor:move;
+  box-shadow:0 0 10px rgba(0,0,0,.25);
+}
+
+.first {
+  border-top-left-radius:var(--border-radius);
+  background-position:left top !important;
+}
+.secon {
+  background-position:center top !important;
+}
+.third {
+/*   border-top-right-radius:var(--border-radius); */
+  background-position:right top !important;
+}
+.fourt {
+  background-position:left center !important;
+}
+.fifth {
+  background-position:center center !important;
+}
+.sixth {  
+  background-position:right center !important;
+}
+.seven {
+/*   border-bottom-left-radius:var(--border-radius); */
+  background-position:left bottom !important;
+}
+.eight {
+  background-position:center bottom !important;
+}
+.ninth {
+  border-bottom-right-radius:var(--border-radius);
+  background-position:right bottom !important;
+}
+
+.clicked {
+  box-shadow:0 0 0 4px gray !important;
+}
+
+.dropped {
+  background:var(--color);
+  background-image:var(--image);
+  background-size:300px 300px;
+}
+.done {
+  opacity:0;
+  pointer-events:none;
+}
+
+.allDone {
+  animation:allDone 1s linear forwards;
+  border:3px solid lightgray !important;
+}
+.allDone i {
+  outline:0 !important;
+}
+
+@keyframes allDone {
+  50% { transform:translate(-50%,-50%) scale(1.2); }
+}
+
+#clicks {
+  font-size:8px;
+  font-family:monospace;
+  position:absolute;
+  bottom:5px;
+  right:5px;
+}
+
+
+/* Dialog Box Styling */
+#dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Darker overlay for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#dialog-content {
+  background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Subtle gradient */
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deeper shadow */
+  max-width: 600px;
+  width: 90%;
+  animation: slideIn 0.5s ease-out; /* Slide-in animation */
+}
+
+#dialog-content p {
+  margin: 0 0 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Stats Container */
+#dialog .stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* More spacing between stats */
+  margin: 20px 0;
+  flex-wrap: wrap; /* Responsive for smaller screens */
+}
+
+/* Individual Stat Items */
+#dialog .stat-item {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 120px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+#dialog .stat-item:hover {
+  transform: translateY(-5px); /* Lift on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+#dialog .stat-item h3 {
+  margin: 0;
+  font-size: 28px; /* Larger number */
+  font-family: 'Courier New', Courier, monospace; /* Monospace for numbers */
+  color: #2c3e50; /* Darker blue-gray */
+  font-weight: bold;
+}
+
+#dialog .stat-item p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: #7f8c8d; /* Softer gray */
+  text-transform: uppercase; /* Uppercase labels */
+  letter-spacing: 1px; /* Slight spacing for readability */
+}
+
+/* Dialog Buttons */
+#dialog-content button {
+  padding: 12px 25px;
+  margin: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #3498db; /* Bright blue */
+  color: white;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#dialog-content button:hover {
+  background: #2980b9; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight scale-up */
+}
+
+/* Animation for Dialog Appearance */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  </style>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id='puz_box'>
+  <div id='puz'>
+    <i class='first' ondrop='drop(event)' ondragover='allowDrop(event)' ></i>
+    <i class='secon' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='third' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='fourt' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='fifth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='sixth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='seven' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='eight' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='ninth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+  </div>
+  <div id='puzz'>
+    <i class='third' draggable='true' ondragstart='drag(event)'></i>
+    <i class='first' draggable='true' ondragstart='drag(event)'></i>
+    <i class='secon' draggable='true' ondragstart='drag(event)'></i>
+    <i class='fourt' draggable='true' ondragstart='drag(event)'></i>
+    <i class='fifth' draggable='true' ondragstart='drag(event)'></i>
+    <i class='sixth' draggable='true' ondragstart='drag(event)'></i>
+    <i class='seven' draggable='true' ondragstart='drag(event)'></i>
+    <i class='eight' draggable='true' ondragstart='drag(event)'></i>
+    <i class='ninth' draggable='true' ondragstart='drag(event)'></i>  
+  </div>
+</div>
+<div id='clicks'>0</div>
+
+<div id="dialog" style="display:none;">
+    <div id="dialog-content">
+        <p>Puzzle Completed! What would you like to do?</p>
+        <div class="stats"></div>
+        <button id="continue-btn">Continue</button>
+        <a href="index.html"><button id="exit-btn">Exit</button></a>
+
+    </div>
+</div>
+<!-- partial -->
+  <script type="text/javascript">
+    
+    //var images = ['images/project3.jpg'];  //https://iili.io/2unYe3v.jpg
+    var images = ['images/project3.jpg']; // Replace with your image URL
+    var currentIndex = 0;
+    var totalClicks = 0;
+
+    function randomizeImage() {
+        let root = document.documentElement;
+        root.style.setProperty('--image', 'url(' + images[currentIndex] + ')');
+        currentIndex = (currentIndex + 1) % images.length;
+        var puzzleItems = document.querySelectorAll('#puzz i');
+        const exclusionZone = 400;
+        const halfExclusion = exclusionZone / 2;
+
+        puzzleItems.forEach(function (item) {
+            let x, y;
+            do {
+                x = Math.random() * (window.innerWidth - 100);
+                y = Math.random() * (window.innerHeight - 100);
+            } while (
+                x + 100 > window.innerWidth / 2 - halfExclusion &&
+                x < window.innerWidth / 2 + halfExclusion &&
+                y + 100 > window.innerHeight / 2 - halfExclusion &&
+                y < window.innerHeight / 2 + halfExclusion
+            );
+            item.style.left = x + 'px';
+            item.style.top = y + 'px';
+        });
+    }
+
+    randomizeImage();
+
+    function reloadPuzzle() {
+        document.querySelectorAll('.done').forEach(el => el.classList.remove('done'));
+        document.querySelectorAll('.dropped').forEach(el => el.classList.remove('dropped'));
+        var allDoneElement = document.querySelector('#puz');
+        allDoneElement.style = '';
+        allDoneElement.classList.remove('allDone');
+    }
+
+    document.querySelectorAll('#puzz i').forEach(function (element) {
+        element.addEventListener('mousedown', function () {
+            totalClicks++;
+            document.querySelector('#clicks').innerHTML = totalClicks;
+        });
+        element.addEventListener('click', function () {
+            var clicked = document.querySelector('.clicked');
+            if (clicked) clicked.classList.remove('clicked');
+            element.classList.toggle('clicked');
+        });
+    });
+
+    document.querySelectorAll('#puz i').forEach(function (element) {
+        element.addEventListener('click', function () {
+            var clicked = document.querySelector('.clicked');
+            if (clicked) {
+                var pieceClass = clicked.classList[0];
+                if (element.classList.contains(pieceClass)) {
+                    element.classList.add('dropped');
+                    clicked.classList.add('done');
+                    clicked.classList.remove('clicked');
+                    checkPuzzleCompletion();
+                }
+            }
+        });
+    });
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.classList[0]);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        if (ev.target.classList.contains(data)) {
+            ev.target.classList.add('dropped');
+            document.querySelector('#puzz .' + data + "[draggable='true']").classList.add('done');
+            checkPuzzleCompletion();
+        }
+    }
+
+    async function fetchGitHubStats() {
+        try {
+            const username = 'Amanjha112113'; // Replace with your GitHub username
+            const response = await fetch(`https://api.github.com/users/${username}`);
+            const data = await response.json();
+            
+            const statsContainer = document.querySelector('#dialog .stats');
+            if (statsContainer) {
+                statsContainer.innerHTML = ''; // Clear previous stats
+                const stats = [
+                    { value: data.public_repos, label: 'Repositories' },
+                    { value: data.followers, label: 'Followers' },
+                    { value: data.following, label: 'Following' }
+                ];
+                stats.forEach(stat => {
+                    const statItem = document.createElement('div');
+                    statItem.className = 'stat-item';
+                    statItem.innerHTML = `
+                        <h3>${stat.value}</h3>
+                        <p>${stat.label}</p>
+                    `;
+                    statsContainer.appendChild(statItem);
+                });
+            }
+        } catch (error) {
+            console.error('Error fetching GitHub stats:', error);
+        }
+    }
+
+    function checkPuzzleCompletion() {
+        if (document.querySelectorAll('.dropped').length === 9) {
+            var puz = document.querySelector('#puz');
+            puz.classList.add('allDone');
+            puz.style.border = 'none';
+            puz.style.animation = 'allDone 1s linear forwards';
+            setTimeout(function () {
+                document.getElementById('dialog').style.display = 'flex';
+                fetchGitHubStats(); // Fetch stats when dialog appears
+            }, 1000);
+        }
+    }
+
+    document.getElementById('continue-btn').addEventListener('click', function () {
+        document.getElementById('dialog').style.display = 'none';
+        reloadPuzzle();
+        randomizeImage();
+    });
+
+    document.getElementById('exit-btn').addEventListener('click', function () {
+        document.getElementById('dialog').style.display = 'none';
+    });
+</script>
+
+  </script>
+
+</body>
+</html>
