@@ -142,7 +142,7 @@ contactForm.addEventListener('submit', async (e) => {
 });
 
 // GitHub API Integration
-async function fetchGitHubStats() {
+/*async function fetchGitHubStats() {
     try {
         const username = 'Amanjha112113'; // Replace with your GitHub username
         const response = await fetch(`https://api.github.com/users/${username}`);
@@ -166,7 +166,7 @@ async function fetchGitHubStats() {
 }
 
 // Call GitHub stats function
-fetchGitHubStats();
+fetchGitHubStats();*/
 
 // Weather API Integration for location
 async function fetchWeather() {
