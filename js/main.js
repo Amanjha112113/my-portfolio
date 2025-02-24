@@ -74,7 +74,7 @@ const projects = [
         description: 'Weather forecast app using OpenWeather API',
         image: 'images/project3.jpg',
         tags: ['JavaScript', 'API', 'CSS3'],
-        link: 'https://github.com/Amanjha112113/aids-A'
+        link: '#'
     }
 ];
 
