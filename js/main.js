@@ -60,14 +60,14 @@ const projects = [
         description: 'A full-stack e-commerce platform with React and Node.js',
         image: 'images/project1.jpg',
         tags: ['React', 'Node.js', 'MongoDB'],
-        link: 'https://github.com/Amanjha112113/Hackathon'
+        link: '#'
     },
     {
         title: 'Task Management App',
         description: 'A real-time task management application',
         image: 'images/project2.jpg',
         tags: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-        link: 'https://github.com/Amanjha112113/aids-A'
+        link: '#'
     },
     {
         title: 'Weather Dashboard',
