@@ -60,21 +60,21 @@ const projects = [
         description: 'A full-stack e-commerce platform with React and Node.js',
         image: 'images/project1.jpg',
         tags: ['React', 'Node.js', 'MongoDB'],
-        link: '#'
+        link: 'https://github.com/zonetecde/random-github-repo'
     },
     {
         title: 'Task Management App',
         description: 'A real-time task management application',
         image: 'images/project2.jpg',
         tags: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-        link: '#'
+        link: 'https://github.com/zonetecde/random-github-repo'
     },
     {
         title: 'Weather Dashboard',
         description: 'Weather forecast app using OpenWeather API',
         image: 'images/project3.jpg',
         tags: ['JavaScript', 'API', 'CSS3'],
-        link: '#'
+        link: 'https://github.com/zonetecde/random-github-repo'
     }
 ];
 
