@@ -1,17 +1,87 @@
+# AI-Powered Portfolio Architecture 🚀
+
+[![Platform-Web](https://img.shields.io/badge/Platform-Web-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://developer.chrome.com/)
+[![React Framework](https://img.shields.io/badge/Framework-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+[![FastAPI Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Gemini AI](https://img.shields.io/badge/AI_Engine-Gemini_Pro-purple?style=for-the-badge&logo=google-gemini&logoColor=white)](https://ai.google.dev/)
+
+A high-performance, 3D interactive portfolio architecture featuring a real-time AI Agent, secure communication channels, and advanced glassmorphic aesthetics. This project demonstrates the intersection of modern frontend engineering, backend orchestration, and generative AI.
+
+---
+
+## 🏗 Engineering Architecture
+
+The portfolio is designed as a full-stack distributed system, ensuring high-fidelity interactions while maintaining sub-second response times for AI-driven features.
+
+### 1. **Visual Engine (Frontend)**
+*   **3D Interactive Model**: Powered by **Three.js** and **React Three Fiber (R3F)**, featuring a custom-modeled character with real-time mouse tracking and dynamic physics-based collisions.
+*   **Aura Design System**: A custom "Stitch" inspired glassmorphic UI built with **Vanilla CSS** and **GSAP** for hardware-accelerated animations (60FPS).
+*   **Dynamic Asset Pipeline**: Utilizes **Vite** for optimized build cycles and on-demand asset loading, significantly reducing First Contentful Paint (FCP).
+
+### 2. **Orchestration Layer (FastAPI Backend)**
+*   **Asynchronous SSE Streaming**: Implements Server-Sent Events (SSE) to deliver **Gemini 1.5 Flash** responses character-by-character, providing a "living" AI interaction experience.
+*   **Secure Mail Transfer Protocol (SMTP)**: Orchestrates background email tasks for the contact form, ensuring non-blocking delivery and transmission confirmation.
+*   **Rate Limiting & Safety**: Built-in **SlowAPI** middleware to prevent DDoS and protect the generative AI endpoints from exhaustion.
+
+---
+
+## 🚀 Key Capabilities
+
+*   **⚡ AI System Architect**: A floating, edge-integrated chat agent that can discuss technical architecture, projects, and professional background in real-time.
+*   **🔍 Direct Message Uplink**: A secure, glassmorphic contact interface with built-in validation and payload delivery tracking.
+*   **🤩 Physics-Based Tech Stack**: An interactive "bubble" tech stack built with **Rapier** physics, allowing users to interact with skill nodes in 3D space.
+*   **😀 Responsive Modernism**: Fully adaptive design that translates high-fidelity desktop effects into performant mobile experiences.
+
+---
+
+## ⚡ Performance Optimization
+
+*   **Asset Decryption & Compression**: 3D models and textures are optimized to stay under the performance budget, ensuring smooth rendering on all devices.
+*   **Network Efficiency**: Zero-gravity SSE streaming minimizes data overhead during AI conversations.
+*   **Selective Hydration**: Critical UI elements are prioritized during the loading phase to ensure immediate interactivity.
+
+---
+
+## 🛡 Security & Privacy
+
+*   **Zero Retention Policy**: The AI orchestration layer processes input in real-time without persistent storage of user messages.
+*   **Credential Isolation**: Deployment and local development utilize strictly isolated environment variables (`.env`, `.gitignore`) to prevent credential leakage.
+*   **Encrypted Uplink**: All form submissions and AI communications are secured via TLS/SSL.
+
+---
+
+## 🛠 Local Development & Startup
+
+### Prerequisites
+*   **Node.js**: 18.x or higher
+*   **Python**: 3.10+
+*   **API Access**: Gemini API Key from [Google AI Studio](https://aistudio.google.com/)
+
+### Installation Steps
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/Amanjha112113/my-portfolio.git
+    cd my-portfolio
+    ```
+2.  **Initialize Frontend**:
+    ```bash
+    npm install
+    npm run dev
+    ```
+3.  **Initialize Backend**:
+    ```bash
+    cd backend
+    python -m venv venv
+    source venv/bin/activate  # Or venv\Scripts\activate on Windows
+    pip install -r requirements.txt
+    uvicorn app.main:app --reload
+    ```
+
+---
+
 # 💫 About Me:
 :<br><br>👋 Hi there! I'm Aman Jha, a passionate AI & Data Science student from Nepal, currently studying at Sri Eshwar College of Engineering. I love building intelligent systems and innovative projects that create real-world impact.<br><br>🎯 I’m currently working on:<br>AURA – an AI-powered healthcare assistant for rural areas.<br><br>🤝 I’m looking to collaborate on:<br>AI/ML hackathons, robotics projects, and smart apps.<br><br>🙋‍♂️ I’m looking for help with:<br>Optimizing ML models and real-time deployment strategies.<br><br>🌱 I’m currently learning:<br>Flutter for mobile app development and advanced DSA in C.<br><br>💬 Ask me about:<br>AI in healthcare, robotics with ESP32, or starting with ML.<br><br>⚡ Fun fact:<br>I once built a robot that could follow me like a loyal pet!<br><br>
-
-# My Portfolio Wesbite - Overview 🚀
-
-This repository contains the open source version of my porfolio website, now upgraded with a premium **Stitch** design aesthetic and backend AI features.
-
-## Instructions 🛠️
-
-I have modified the gsap club plugins with the trial plugins, but with the trial plugin you cannot host it🔴. So for Club plugins, Check out here: https://gsap.com/docs/v3/Installation/
-
-**Techstack** - React, TypeScript, FastAPI, Gemini AI, GSAP, ThreeJS, WebGL, HTML, Css, JavaScript
-
-![Portfolio-Preview](public/images/preview.png)
 
 # 📊 GitHub Stats:
 ![](https://github-readme-stats.vercel.app/api?username=Amanjha112113&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
@@ -20,10 +90,4 @@ I have modified the gsap club plugins with the trial plugins, but with the trial
 
 ---
 
-[![](https://visitcount.itsvg.in/api?id=Amanjha112113&icon=0&color=0)](https://visitcount.itsvg.in)
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+Developed and maintained by **amanjha112113**. 🚀
