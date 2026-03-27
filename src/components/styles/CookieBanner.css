@@ -1,0 +1,74 @@
+/* Cookie consent banner (fixed at top of screen) */
+.cookie-banner-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* ensure it is above everything else */
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  pointer-events: none; /* Let clicks pass through if they miss the actual banner */
+}
+
+.cookie-banner {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  backdrop-filter: blur(5px);
+  pointer-events: auto; /* enable clicks inside the banner */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cookie-text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cookie-link {
+  color: var(--accentColor);
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.cookie-reject,
+.cookie-accept {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+}
+
+.cookie-accept {
+  background: var(--accentColor);
+  border-color: var(--accentColor);
+}
+
+.cookie-reject:hover,
+.cookie-accept:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+  .cookie-actions {
+    flex-direction: column;
+  }
+}
