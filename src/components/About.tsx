@@ -8,8 +8,8 @@ const About = () => {
         <p className="para">
           20y, Sri Eshwar College of Engineering, Coimbatore. AI Engineer Training
           Program @ Microsoft x GenSpark. Experienced in Deep Learning, RAG
-          Systems, LLM Agents, NLP, and System Design. Top 14% globally on LeetCode
-          (1680+ Rating) and an active open-source contributor.
+          Systems, LLM Agents, NLP, and System Design. Top 10% globally on LeetCode
+          (1750+ Rating) and an active open-source contributor.
         </p>
       </div>
     </div>

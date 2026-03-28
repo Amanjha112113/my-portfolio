@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
-import Marquee from "react-fast-marquee";
 
 const Loading = ({ percent }: { percent: number }) => {
   const { setIsLoading } = useLoading();
@@ -44,31 +43,31 @@ const Loading = ({ percent }: { percent: number }) => {
 
       {/* Background Marquee */}
       <div className="stitch-marquee-container">
-        <Marquee speed={40} direction="left" className="stitch-display-font stitch-marquee-row stitch-marquee-1">
+        <div className="stitch-display-font stitch-marquee-row stitch-marquee-1">
           SYSTEM_INITIALIZING SYSTEM_INITIALIZING SYSTEM_INITIALIZING
-        </Marquee>
-        <Marquee speed={50} direction="right" className="stitch-display-font stitch-marquee-row stitch-marquee-2">
+        </div>
+        <div className="stitch-display-font stitch-marquee-row stitch-marquee-2">
           CORE_REPOS_ONLINE CORE_REPOS_ONLINE CORE_REPOS_ONLINE
-        </Marquee>
-        <Marquee speed={30} direction="left" className="stitch-display-font stitch-marquee-row stitch-marquee-3">
+        </div>
+        <div className="stitch-display-font stitch-marquee-row stitch-marquee-3">
           ENCRYPTING_NODES ENCRYPTING_NODES ENCRYPTING_NODES
-        </Marquee>
+        </div>
       </div>
 
       {/* Header Section */}
       <header className="stitch-header stitch-glass-panel">
         <div className="stitch-header-left">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="var(--primary)"><path d="M320-240v-80h-80l-80-80v-160l80-80h80v-80h320v80h80l80 80v160l-80 80h-80v80H320Zm80-160h160v-80h80v-80h-80v-80H400v80h-80v80h80v80Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="var(--primary)"><path d="M320-240v-80h-80l-80-80v-160l80-80h80v-80h320v80h80l80 80v160l-80 80h-80v80H320Zm80-160h160v-80h80v-80h-80v-80H400v80h-80v80h80v80Z" /></svg>
           <h1 className="stitch-display-font stitch-header-title">
             CODEWITHAMAN <span className="slash">//</span> <span className="stitch-tech-font version">v2.0.4-STABLE</span>
           </h1>
         </div>
-        
+
         {/* Technical UI */}
         <div className="stitch-header-right">
-          <div className="stitch-tech-font stitch-header-stats">
+          <div className="stitch-tech-font stitch-header-stats hidden md:flex">
             <span>BUFFER_STATUS: NOMINAL</span>
-            <span style={{color: 'var(--secondary)'}}>UPLINK_STRENGTH: 98%</span>
+            <span style={{ color: 'var(--secondary)' }}>UPLINK_STRENGTH: 98%</span>
           </div>
           <div className="stitch-signal-box">
             <div className="stitch-signal-ping"></div>
@@ -87,9 +86,9 @@ const Loading = ({ percent }: { percent: number }) => {
         {/* Central Loading Trigger Area */}
         <div className="stitch-center-container">
           <div className="stitch-glow-bg"></div>
-          
+
           <button className="stitch-main-panel stitch-glass-panel stitch-bloom-glow">
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <span className="stitch-display-font stitch-percent-text">
                 {Math.min(percent, 100)}<span className="stitch-percent-symbol">%</span>
               </span>
@@ -98,8 +97,8 @@ const Loading = ({ percent }: { percent: number }) => {
 
             {/* Progress Bar */}
             <div className="stitch-progress-wrapper">
-              <div 
-                className="stitch-progress-fill" 
+              <div
+                className="stitch-progress-fill"
                 style={{ width: `${percent}%` }}
               ></div>
             </div>
@@ -108,11 +107,11 @@ const Loading = ({ percent }: { percent: number }) => {
             {loaded && (
               <div className="stitch-continue-action">
                 <span className="stitch-tech-font">CONTINUE_TO_CORE</span>
-                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" /></svg>
               </div>
             )}
           </button>
-          
+
           <div className="stitch-bracket-tl"></div>
           <div className="stitch-bracket-br"></div>
         </div>
@@ -120,11 +119,11 @@ const Loading = ({ percent }: { percent: number }) => {
         {/* Subtext Technical Info */}
         <div className="stitch-subtext-container">
           <div className="stitch-tech-font stitch-subtext-line1">
-             <span className="stitch-cursor-blink"></span>
-             FETCHING_METADATA: <span style={{color: 'var(--on-surface)'}}>projects/archive_2024.gz</span>
+            <span className="stitch-cursor-blink"></span>
+            FETCHING_METADATA: <span style={{ color: 'var(--on-surface)' }}>projects/archive_2024.gz</span>
           </div>
           <p className="stitch-subtext-line2">
-             Establishing a secure tunnel to the development server. Please wait while the architecture stabilizes.
+            Establishing a secure tunnel to the development server. Please wait while the architecture stabilizes.
           </p>
         </div>
       </main>
