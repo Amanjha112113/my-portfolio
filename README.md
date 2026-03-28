@@ -79,4 +79,4 @@ The portfolio is designed as a full-stack distributed system, ensuring high-fide
     ```
 
 ---
-Developed and maintained by **amanjha112113**. 🚀
+Developed and maintained by **amanjha112113** 🚀
